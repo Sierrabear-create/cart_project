@@ -70,7 +70,19 @@ def update_stock(item_name, inventory):
 # 4: RECEIPTS & TAX — Tax calculation and receipt
 # ============================================================
 
-
+def calculate_tax(after_discount):
+    tax = after_discount * 0.08     # Code goes here
+    return tax                      # Return something here
+def generate_receipt(cart, subtotal, discount, tax, total, customer_name):
+    receipt = "--- Receipt ---\n"
+    receipt += f"Customer Name: {customer_name}\n"
+    for item in cart:
+        receipt += f"{item['name']}: ${item['price']:.2f}\n"
+    receipt += f"Subtotal: ${subtotal:.2f}\n"
+    receipt += f"Discount: ${discount:.2f}\n"
+    receipt += f"Tax: ${tax:.2f}\n"
+    receipt += f"Total: ${total:.2f}\n"
+    return receipt                  # Return something
 
 
 # ============================================================
