@@ -39,7 +39,19 @@ MEMBERS = {
 # 1: CHECKOUT — Scan items and calculate subtotal
 # ============================================================
 
-    
+    def scan_item(item_name, inventory):
+    if item_name not in inventory:
+        return None
+    return {"name": item_name, "price": inventory[item_name]["price"]}
+
+def calculate_subtotal(cart):
+    subtotal = 0
+
+    for item in cart:
+        subtotal = subtotal + item["price"]
+
+    return subtotal
+
 
 
 
